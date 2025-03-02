@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Cadastro de Pessoas</title> <!-- Titulo ou nome da página -->
+
+    <script>
+        // Função para impedir a entrada de números no campo de nome
+        function permitirApenasLetras(event) {
+            var tecla = event.keyCode || event.which;
+            var teclaPressionada = String.fromCharCode(tecla);
+            var padrao = /^[A-Za-z\s]+$/; // Somente letras e espaços permitidos
+    
+            if (!padrao.test(teclaPressionada)) {
+                event.preventDefault(); // Impede a digitação de números ou caracteres não permitidos
+            }
+        }
+    </script>
+{% endblock %}
+
+{% block body %}
+    <section id = "header">
+        <h1>Sistema de Gastos Residenciais</h1> <!-- Exibe Sistema de Gastos Residenciais na parte superior esquerda da página principal -->
+        <div>
+            <ul id="navbar"> <!-- Cabeçalho contendo os links para as outras partes do código -->
+                <li><a href="{{ url_for('cadastro_transacao') }}"><h3>Cadastro de Transações</h3></a></li> 
+                <li><a href="{{ url_for('totais_por_pessoa') }}"><h3>Total por Pessoa</h3></a></li>
+                <li><a href="{{ url_for('totais_gerais') }}"><h3>Total Geral</h3></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class = "content"> <!-- Sistema de Cadastro de Pessoas -->
+        <h1>Cadastro de Pessoa</h1>
+
+        <!-- Formulário para adicionar uma nova pessoa -->
+        <form method="POST" action="/">
+            <label for="nome" class="custom_label">Nome:</label>
+            <input type="text" id="nome" name="nome" class="input_name" required onkeypress="permitirApenasLetras(event)"> <!-- Input para inserir o nome da pessoa, ele filtra números de modo que seja permitido inserir apenas letras -->
+            <br><br>
+            <label for="idade" class="custom_label">Idade: </label> <!-- Input para inserir a idade, ele filtra números decimais e negativos -->
+            <input type="number" id="idade" name="idade" class="input_age" required min="1">
+            <br><br>
+            <button type="submit" class="cad_button">Cadastrar</button> <!-- Botão para enviar os dados de nome e idade para o banco de dados -->
+        </form>
+
+        <h2>Pessoas Cadastradas</h2>
+
+        <!-- Lista de pessoas cadastradas -->
+        <table border="1" class="custom_table"> <!-- Listagens de todas as pessoas cadastradas com seus Nomes, Idades e a Ação de deletar o cadastro da pessoa que apagará as transações dela junto -->
+            <thead> <!-- Fileira horizontal contendo as Palavras Nomes, Idade e Ação -->
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody> <!-- Fileiras contendo os Nomes, Idades de cada cadastro e a função de deletar o cadastro na mesma linha -->
+                {% for pessoa in pessoas %}
+                    <tr class="custom_tr">
+                        <td>{{ pessoa.nome }}</td>
+                        <td>{{ pessoa.idade }}</td>
+                        <td>
+                            <a href="{{ url_for('deletar', id_pessoa=pessoa.id_pessoa) }}">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

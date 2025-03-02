@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Totais por Pessoa</title>
+{% endblock %}
+
+{% block body %}
+
+    <section id = "header">
+        <div>
+            <ul id="navbar" class="different_navbar">
+                <li><a href="{{ url_for('home') }}"><h3>Cadastro de Pessoas</h3></a></li>
+                <li><a href="{{ url_for('cadastro_transacao') }}"><h3>Cadastro de Transações</h3></a></li>
+                <li><a href="{{ url_for('totais_gerais') }}"><h3>Total Geral</h3></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div id="totais" class="content">
+        <h1>Totais por Pessoa</h1>
+        <table border="1" class="custom_table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Total de Receitas</th>
+                    <th>Total de Despesas</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for resultado in resultados %}
+                <tr class="custom_tr">
+                    <td>{{ resultado.nome }}</td>
+                    <td>{{ resultado.total_receitas }}</td>
+                    <td>{{ resultado.total_despesas }}</td>
+                    <td>{{ resultado.saldo }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona todas as células da tabela que contêm valores numéricos
+            const cells = document.querySelectorAll("td");
+            
+            // Itera sobre todas as células
+            cells.forEach(function(cell) {
+                // Verifica se o conteúdo da célula é um número e faz a substituição
+                if (cell.textContent.includes(".")) {
+                    cell.textContent = cell.textContent.replace(".", ",");
+                }
+            });
+        });
+    </script>
+{% endblock %}

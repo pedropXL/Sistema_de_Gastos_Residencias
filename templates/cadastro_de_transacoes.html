@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Cadastro de Transações</title> <!-- Título ou Nome da página -->
+
+    <script> // Script em JavaScript para tornar a palavra Despesa em Vermelho e a palavra Receita em Verde
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectElement = document.getElementById('tipo');
+            
+            // Define a cor inicial (para quando não há nenhuma seleção)
+            selectElement.style.color = 'red';  // Cor inicial do texto
+    
+            // Adiciona um evento que detecta a mudança de valor no select
+            selectElement.addEventListener('change', function() {
+                const selectedValue = this.value;
+    
+                // Muda a cor do texto conforme o valor selecionado
+                if (selectedValue === 'Despesa') {
+                    this.style.color = 'red';  // Cor vermelha para 'Despesa'
+                } else if (selectedValue === 'Receita') {
+                    this.style.color = 'green';  // Cor verde para 'Receita'
+                }
+            });
+        });
+    </script>
+
+    <script> // Script em JavaScript para tornar a palavra Despesa em Vermelho e a palavra Receita em Verde, isso muda a cor das palavras dentro da tabela
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona todas as células com o id 'tipo-transacao'
+            const tipoCells = document.querySelectorAll('#tipo-transacao');
+
+            // Itera sobre todas as células de tipo
+            tipoCells.forEach(function(cell) {
+                // Verifica o conteúdo da célula e altera a cor conforme o tipo
+                if (cell.textContent.trim() === 'Despesa') {
+                    cell.style.color = 'red';  // Cor vermelha para 'Despesa'
+                } else if (cell.textContent.trim() === 'Receita') {
+                    cell.style.color = 'green';  // Cor verde para 'Receita'
+                } else {
+                    cell.style.color = 'black';  // Cor padrão (preto)
+                }
+            });
+        });
+    </script>
+
+    <!-- Script para substituir o ponto por vírgula -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleciona todas as células da tabela que contêm valores numéricos
+            const cells = document.querySelectorAll("td");
+        
+            // Itera sobre todas as células
+            cells.forEach(function(cell) {
+                // Verifica se o conteúdo da célula é um número e faz a substituição
+                if (cell.textContent.includes(".")) {
+                    cell.textContent = cell.textContent.replace(".", ",");
+                }
+            });
+        });
+    </script>
+    
+{% endblock %}
+
+{% block body %}
+
+<section id = "header"> <!-- Cabeçalho contendo os links para acessar as outras páginas -->
+    <div>
+        <ul id="navbar" class="different_navbar"> <!-- Links para acessar as outras páginas -->
+            <li><a href="{{ url_for('home') }}"><h3>Cadastro de Pessoas</h3></a></li>
+            <li><a href="{{ url_for('totais_por_pessoa') }}"><h3>Total por Pessoa</h3></a></li>
+            <li><a href="{{ url_for('totais_gerais') }}"><h3>Total Geral</h3></a></li>
+        </ul>
+    </div>
+</section>
+
+<div class="content"> <!-- Uma div que contém o Sistema para cadastrar novas transações -->
+    <h1>Cadastro de Transação</h1>
+
+    <!-- Formulário para adicionar uma nova transação -->
+    <form method="POST" action="/cadastro_transacao">
+        <label for="descricao" class="custom_label">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" class="custom_input" required> <!-- Input para inserir a descrição do transação -->
+        <br><br>
+        
+        <label for="valor" class="custom_label">Valor:</label>
+        <input type="number" id="valor" name="valor" class="custom_input" step="0.01" min="1" required> <!-- Input para inserir o valor da transação, ele não permite números negativos -->
+        <br><br>
+        
+        <label for="tipo" class="custom_label">Tipo:</label>
+        <select id="tipo" name="tipo" class="custom_input" required> <!-- Selector para o usuário escolher entre Despesa ou Receita -->
+            <option id = "red_word" class="custom_input" value="Despesa">Despesa</option>
+            <option id="green_word" class="custom_input" value="Receita">Receita</option>
+        </select>
+        <br><br>
+ 
+        <label for="id_pessoa" class="custom_label">Pessoa:</label> 
+        <select id="id_pessoa" placeholder="Escolha um usuário" name="id_pessoa" class="custom_input" required> <!-- Selector para o usuário selecionar qual pessoa, baseado apenas nas pessoas cadastradas, fez a transação -->
+            {% for pessoa in pessoas %}
+                <option class="custom_input" value="{{ pessoa.id_pessoa }}">{{ pessoa.nome }}</option>
+            {% endfor %}
+        </select>
+        {% if request.args.get('error') %} <!-- Retorna um erro caso o usuário tente selectionar uma transação tipo Receita para uma pessoa menor de 18 anos -->
+        <div class="error-modal">{{ request.args.get('error') }}</div>
+        {% endif %}
+        
+        <br><br>
+
+        <button type="submit" class="cad_button">Cadastrar Transação</button> <!-- Botão para enviar os dados de cadastro de transação para o banco de dados -->
+    </form>
+
+    <h2>Transações Cadastradas</h2>
+    <!-- Lista de transações cadastradas -->
+    <table border="1" class="custom_table"> <!-- Listagem das transações contendo Descrição, Valor, Tipo e Pessoa que fez a transação -->
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Tipo</th>
+                <th>Pessoa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transacao in transacoes %}
+                <tr class="custom_tr"> <!-- Tabela contendo os dados da Transação -->
+                    <td>{{ transacao.descricao }}</td>
+                    <td>R$ {{ transacao.valor }}</td> <!-- Os valores são impressos com vírgula -->
+                    <td id="tipo-transacao">{{ transacao.tipo }}</td> <!-- As Despesas são impressas em Vermelho e Receita são impressas em Verde -->
+                    <td>{{ transacao.pessoa.nome }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

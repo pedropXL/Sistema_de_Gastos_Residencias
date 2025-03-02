@@ -1,0 +1,286 @@
+/* Customiza, Colore, Centraliza e espaça o cabeçalho da primeira página onde está escrito o nome do sistema */
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color: #26F7FD;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    top: 0;
+    left: 0;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 50px; /* Adiciona espaços entre as tags */
+    position: relative; 
+    display: inline;
+    cursor: pointer; /* Muda o cursor para a mãozinha ao passar por cima */
+  }
+
+#navbar li a {
+    text-decoration: none; /*Retirar o sublinhado de link em baixo das palabras */
+    color: black; /* Cor do texto do link por padrão */
+    transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+#navbar li a:hover {
+    color: rgb(23, 36, 223);
+    transition: 0.3s ease;
+}
+
+#navbar li:hover,
+#navbar li.active {
+    color: rgb(23, 36, 223);
+    transition: 0.3s ease;
+}
+
+#navbar li:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 38px;
+    width: 50%;
+    height: 4px; /* Espessura do sublinhado */
+    background-color: #1589fd; /* Cor azul do sublinhado */
+}
+
+.different_navbar li{
+    display: inline-block;
+    margin-right: 70px;
+    margin-left: 50px;
+}
+
+#nome {
+    text-transform: capitalize; /* Transforma a primeira letra de cada palavra em maiúscula */
+}
+
+body {
+    margin: 0;
+    background-color: rgb(213, 226, 226) !important; /* Definir o fundo do corpo como branco */
+    font-family: 'Roboto', sans-serif; /* Aplica a fonte Roboto */
+    color: #000000; /* Define a cor do texto como preto (ou qualquer cor que preferir) */
+  }
+
+.custom_label {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+input.input_name {
+    font-size: 14px;
+    padding: 3px;
+    width: 100%;
+    max-width: 200px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.input_name:focus {
+    outline: none;
+    border-color: #0b1313; /* Cor do borda quando o campo está em foco */
+    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
+}
+
+input.input_age {
+    font-size: 14px;
+    padding: 3px;
+    width: 100%;
+    max-width: 203px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+.input_age:focus {
+    outline: none;
+    border-color: #0b1313; /* Cor do borda quando o campo está em foco */
+    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
+}
+
+
+
+/* CSS */
+button.cad_button {
+  background-color: #009879;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: bold;
+  height: 35px;
+  line-height: 15px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  box-shadow: 0 0 20px rgb(0, 0, 0, 0.15)
+}
+
+.cad_button:hover,
+.cad_button:focus {
+  background-color: #00ffcc;
+  transition: 0.3s ease;
+}
+
+/*CSS do cadastro_de_transacoes.html*/
+
+input.custom_input {
+    font-size: 14px;
+    padding: 3px;
+    width: 100%;
+    max-width: 200px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+#red_word {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px;
+    color: rgb(219, 11, 11);
+    width: 100%;
+    max-width: 200px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+#green_word {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px;
+    color: rgb(10, 145, 10);
+    width: 100%;
+    max-width: 200px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+#tipo {
+    font-size: 14px;
+    padding: 3px;
+    width: 100%;
+    max-width: 90px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+#tipo:focus {
+    border-color: #0b1313; /* Altera a cor da borda quando o campo está em foco */
+    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
+}
+
+#id_pessoa {
+    font-size: 14px;
+    padding: 3px;
+    width: 100%;
+    max-width: 250px;
+    border: 2px solid #cfc0c0;
+    border-radius: 6px;
+    transition: border-color 0.3s ease;
+}
+
+#id_pessoa:focus {
+    border-color: #0b1313; /* Altera a cor da borda quando o campo está em foco */
+    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
+}
+
+/* Para navegadores Webkit (Chrome, Safari, etc) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Para navegadores no Windows */
+input[type="number"]::-ms-clear {
+    display: none;
+}
+
+.error-modal {
+    background-color: #f8d7da;
+    margin-top: 10px;
+    width: 400px;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.custom_input {
+    font-weight: bold;
+}
+
+/* Personalizando e estilizando as tabelas */
+
+.custom_table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+}
+
+.custom_table thead tr {
+    background-color: #009879;
+    color:#000000;
+    text-align: left;
+    font-weight: bold;
+}
+
+.custom_table th,
+.custom_table td {
+    padding: 12px 15px;
+}
+
+.custom_table tbody tr {
+    border-bottom: 1px solid #dddddd; /* Retira as linhas verticais */
+}
+
+.custom_table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.custom_table tbody tr:last-of-type {
+    border-bottom: 3px solid #009879;
+}
+
+.custom_table tbody tr.custom_tr {
+    font-weight: bold;
+    color: #009879;
+}
