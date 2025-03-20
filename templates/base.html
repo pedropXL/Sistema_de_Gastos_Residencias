@@ -1,31 +1,8 @@
 <!-- Arquivo HTML base para os outros arquivos, assim se torna mais eficiente reutilizar o código -->
 <!DOCTYPE html>
 <html lang="en">
-<style>
 
-th, td {
-  padding: 5px; /* Adiciona um pouco de espaçamento nas células */
-  text-align: left; /* Formata o texto mais para esquerda dentro das tabela */
-}
-#totais {
-  width: 100%; /* Defina uma largura para a div, pode ajustar conforme necessário */
-  margin: 0 auto;
-  padding: 10px; /* Um pouco de preenchimento interno */
-  background-color: rgb(213, 226, 226);
-  color: black;
-  margin-left: 420px;
-}
-    
-.content {
-  width: 100%; /* Defina uma largura para a div, pode ajustar conforme necessário */
-  margin: 0 auto;
-  padding: 10px; /* Um pouco de preenchimento interno */
-  background-color: rgb(213, 226, 226);
-  color: black;
-  margin-left: 480px;
-}
 
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +10,7 @@ th, td {
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
     {% block head %}{% endblock %}
 </head>
-<body>
+<body class="{% block body_class %}{% endblock %}">
   {% block body %}{% endblock %}
 </body>
 </html>

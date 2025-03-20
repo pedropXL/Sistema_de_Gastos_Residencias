@@ -25,6 +25,10 @@ db.init_app(app)
 #def criar_tabelas():
     #db.create_all()  # Cria todas as tabelas definidas no modelo
     #return "Tabelas criadas com sucesso!"
+    
+@app.route("/cadastro_login_usuario")
+def cadastrar_login_usuario():
+    return render_template("cadastro_login_usuario.html")
 
 # Rota para a página principal ("/")
 @app.route("/", methods=["GET", "POST"])

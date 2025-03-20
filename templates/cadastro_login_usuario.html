@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+ <title>Cadastro e Login de Usuário</title>
+{% endblock %}
+
+{% block body_class %}login-page{% endblock %}
+
+{% block body %}
+
+<section class="content_login_usuario">
+    <div class="image-container">
+        <img src='/static/images/imagem_de_panilha.jpg' alt="Imagem de login"> 
+    </div>
+    <div class="login-box">
+        <h1 id="login_title">Login</h1>
+        <form method="POST" action="/cadastro_login_usuario" class="custom_form">
+                <label for="nome_usuario"></label>
+                <input type="text" id="user_input" name="user_name" required placeholder="Nome de Usuário">
+                <label for="senha"></label>
+                <input type="password" id="user_input" name="user_password" required placeholder="Senha">
+                <div class="cadastrar">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Lembre-me</label>
+                    <a href="#">Esqueci a senha?</a>
+                </div>
+
+                <button type="submit">Entrar</button>
+
+                <p>Não tem uma conta?<a href="#" id="register"> Cadastre-se</a></p>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

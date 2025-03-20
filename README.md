@@ -7,9 +7,12 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 [![Static Badge](https://img.shields.io/badge/LinkedIn-www.linkedin.com%2Fin%2Fpedropedrazzi-blue)](https://www.linkedin.com/in/pedropedrazzi)
 
+---
+
 ## Visão Geral do Projeto
 Este é um sistema de gerenciamento de gastos residenciais que permite o cadastro de pessoas, a inserção de transações financeiras (despesas e receitas) para cada pessoa e a visualização do total por pessoa e o total geral. O sistema foi desenvolvido utilizando Flask, PostgreSQL, HTML, CSS e JavaScript.
 
+---
 
 ## **Tabela de Conteúdos**
 
@@ -20,6 +23,8 @@ Este é um sistema de gerenciamento de gastos residenciais que permite o cadastr
 - [Modelo de Banco de Dados](#modelo-de-banco-de-dados)
 - [Calculo dos Totais](#calculo-dos-totais)
 - [Front-End](#front-end)
+
+---
 
 ## **Características e Funcionalidades do Sistema**
 
@@ -39,6 +44,8 @@ O usuário apenas pode inserir transações do tipo Receita para pessoas com mai
 
 - **Total Geral**: Calcula o Total de Receitas Geral (a soma do Total de Receitas de todas as pessoas), o Total de Despesas Geral (a soma do Total de Despesas de todas as pessoas) e o Saldo Líquido Geral (Total de Receitas Geral - Total de Despesas Geral). Todos esses dados são impressos por meio de uma tabela com uma única fileira com esses dados.
 
+---
+
 ## **Requisitos**
 
 - Python 3.x;
@@ -46,6 +53,8 @@ O usuário apenas pode inserir transações do tipo Receita para pessoas com mai
 - Flask-SQLAlchemy;
 - PostgreSQL;
 - Psycopg2;
+
+---
 
 ## **Como Executar o Sistema**
 
@@ -109,6 +118,8 @@ O usuário apenas pode inserir transações do tipo Receita para pessoas com mai
 
       A aplicação estará disponível em http://127.0.0.1:5000/.
 
+---
+
 ## **Estrutura do Projeto**
 
 /
@@ -123,6 +134,8 @@ O usuário apenas pode inserir transações do tipo Receita para pessoas com mai
 │   ├── style.css
 └── venv/               # Ambiente virtual Python
 
+---
+
 ## **Modelo de Banco de Dados**
 
 O banco de dados é composto por duas tabelas principais:
@@ -132,15 +145,21 @@ Transacao: Armazena informações sobre as transações financeiras (ID, descri�
 
 As transações podem ser classificadas como "Despesa" ou "Receita". O sistema valida que apenas pessoas maiores de 18 anos podem cadastrar receitas.
 
+---
+
 ## **Calculo dos Totais**
 
 O sistema calcula os totais de receitas, despesas e saldo líquido utilizando consultas ao banco de dados. Para cada pessoa, o total de receitas e despesas é somado, e o saldo líquido é a diferença entre as receitas e as despesas.
+
+---
 
 ## **Front-End**
 
 O sistema utiliza templates HTML e CSS "linkado" ao HTML base para exibir as informações. A interface foi desenvolvida com base em um Design "Clean" ou "Limpo" marcado pela simplicidade, funcionalidadem, com cores claras e suaves, com o uso de elementos com bordas suaves e redondas, navegação intuitiva e hierarquia entre as estruturas. 
 
 É possível navegar entre as diferentes páginas, URLs, do projeto por meio do cabeçado principal. O arquivo "base.html" é usado para reutilizar o código para os outros arquivos de template HTML, assim torna o código mais eficiente e evita a redundância. O uso de JavaScript nas páginas permite manipular dinamicamente a exibição das transações, como a mudança de cor para "Despesa" (vermelho) e "Receita" (verde), imprimir números decimais apenas com vírgulas e permitir que apenas letras sejam digitadas no campo de Nome.
+
+---
 
 ## **Contribuição**
 
@@ -158,6 +177,8 @@ Este projeto está licenciado sob a licença MIT. Veja o ficheiro LICENSE para m
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pedropedrazzi)
 
 [![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pedropXL)
+
+---
 
 ## **Contacto e Feedback**
 

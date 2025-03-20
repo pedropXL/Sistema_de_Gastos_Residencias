@@ -5,21 +5,180 @@ html, body {
     overflow-x: hidden;
 }
 
+body.login-page {
+    overflow: hidden;
+}
+
+.content_login_usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.image-container img {
+    width: 50vw;
+    height: 102vh;
+    position: relative;
+    left: -8.5vw;
+    object-fit: cover;
+    box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.2);
+}
+
+.content_login_usuario::before {
+    content: '';
+    position: absolute;
+
+}
+
+.login-box {
+    background-color: #62dbe4;
+    padding: 1.563vw; /* Espaçamento interno */
+    width: 30vw; /* Largura do card */
+    height: auto;
+    min-height: 50vh;
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 0 0.521vw rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+    border-radius: 0.833vw;
+}
+
+#login_title {
+    display: flex;
+    justify-content: center;
+    font-size: 2.125rem;
+}
+
+.custom_form {
+    display: flex;
+    flex-direction: column; /* Coloca os elementos na vertical */
+    align-items: center; /* Alinha os labels e inputs à esquerda */
+    gap: 0.7vw; /* Adiciona espaçamento entre os itens */
+}
+
+#user_input {
+    width: 19.7vw;
+    height: 2.6vh;
+    padding: 0.521vw;
+    margin-top: 0.9vw;
+    border: none;
+    border-radius: 0.521vw;
+    background: transparent;
+    border: 0.052vw solid #fff;
+    color: #fff;
+    font-size: 0.912rem;
+}
+
+#remember {
+    display: flex;
+    align-items: center;
+    gap: 0.26vw;
+}
+
+.custom_form input::placeholder {
+    color: #fff;
+}
+
+.custom_form input:focus {
+    outline: none;
+}
+
+.cadastrar {
+    display: flex;
+    justify-self: space-between;
+    align-items: center;
+    width: 70%;
+    margin-top: 1.8vh;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.cadastrar input {
+    margin-right: 0.5vh;
+    margin-top: 0px;
+}
+
+.cadastrar a {
+    text-decoration: none;
+    color: white;
+    margin-left: auto;
+}
+
+.custom_form button {
+    width: 70%;
+    height: 4.2vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 0.833vw;
+    background: #00eeff;
+    color: black;
+    padding: 0.521vw;
+    border: none;
+    border-radius: 0.521vw;
+    cursor: pointer;
+    margin-top: 0.781vw;
+}
+
+.custom_form button:hover {
+    background: #049499;
+    color: white;
+    outline: 0.052vw solid #fff;
+    transition: 0.5s ease;
+}
+
+.custom_form p {
+    position: relative;
+    left: -4.8vw;
+    font-size: 0.875rem;
+    color: #fff;
+    margin-top: 0.781vw;
+}
+
+#register {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 0.26vw; /* Adiciona um pouco de espaçamento nas células */
+    text-align: left; /* Formata o texto mais para esquerda dentro das tabela */
+  }
+
+#totais {
+    width: 100%; /* Defina uma largura para a div, pode ajustar conforme necessário */
+    margin: 0 auto;
+    padding: 0.521vw; /* Um pouco de preenchimento interno */
+    background-color: rgb(213, 226, 226);
+    color: black;
+    margin-left: 34.875vw;
+  }
+
+.content {
+    width: 100%; /* Defina uma largura para a div, pode ajustar conforme necessário */
+    margin: 0 auto;
+    padding: 0.521vw; /* Um pouco de preenchimento interno */
+    background-color: rgb(213, 226, 226);
+    color: black;
+    margin-left: 38vw;
+    font-family: "Roboto", sans-serif;
+  }
+
 #header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 80px;
+    padding: 2vh 4.167vw;
     background-color: #26F7FD;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 0.26vw 1.5vh rgba(0, 0, 0, 0.06);
     z-index: 999;
     top: 0;
     left: 0;
+    font-family: "Roboto", sans-serif;
   }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
-}
+
 
 #navbar {
     display: flex;
@@ -29,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #navbar li{
     list-style: none;
-    padding: 0 50px; /* Adiciona espaços entre as tags */
+    padding: 0 6.604vw; /* Adiciona espaços entre as tags */
     position: relative; 
     display: inline;
     cursor: pointer; /* Muda o cursor para a mãozinha ao passar por cima */
@@ -55,17 +214,17 @@ h1, h2, h3, h4, h5, h6 {
 #navbar li:hover::after {
     content: '';
     position: absolute;
-    bottom: 10px;
-    left: 38px;
-    width: 50%;
-    height: 4px; /* Espessura do sublinhado */
+    bottom: 0.521vw;
+    left: 4vw;
+    width: 40%;
+    height: 0.4vh; /* Espessura do sublinhado */
     background-color: #1589fd; /* Cor azul do sublinhado */
 }
 
 .different_navbar li{
     display: inline-block;
-    margin-right: 70px;
-    margin-left: 50px;
+    margin-right: 3.646vw;
+    margin-left: 2.604vw;
 }
 
 #nome {
@@ -75,67 +234,65 @@ h1, h2, h3, h4, h5, h6 {
 body {
     margin: 0;
     background-color: rgb(213, 226, 226) !important; /* Definir o fundo do corpo como branco */
-    font-family: 'Roboto', sans-serif; /* Aplica a fonte Roboto */
+    font-family: 'Poppins', sans-serif; 
     color: #000000; /* Define a cor do texto como preto (ou qualquer cor que preferir) */
   }
 
 .custom_label {
-    font-size: 17px;
+    font-size: 1.063rem;
     font-weight: bold;
 }
 
 input.input_name {
-    font-size: 14px;
-    padding: 3px;
+    font-size: 0.875rem;
+    padding: 0.156vw;
     width: 100%;
-    max-width: 200px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 10.417vw;
+    border: 0.150vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 .input_name:focus {
     outline: none;
     border-color: #0b1313; /* Cor do borda quando o campo está em foco */
-    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
+    box-shadow: 0 0 0.26vw rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
 }
 
 input.input_age {
-    font-size: 14px;
-    padding: 3px;
+    font-size: 0.875rem;
+    padding: 0.156vw;
     width: 100%;
-    max-width: 203px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 10.573vw;
+    border: 0.150vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 .input_age:focus {
     outline: none;
     border-color: #0b1313; /* Cor do borda quando o campo está em foco */
-    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
+    box-shadow: 0 0 0.26vw rgba(128, 231, 200, 0.5); /* Efeito de sombra quando o campo está em foco */
 }
-
-
 
 /* CSS */
 button.cad_button {
   background-color: #009879;
-  border-radius: 8px;
+  border-radius: 0.417vw;
   border-style: none;
   box-sizing: border-box;
   color: black;
   cursor: pointer;
   display: inline-block;
   font-family: "Roboto";
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
-  height: 35px;
-  line-height: 15px;
+  height: 3.8vh;
+  line-height: 1.5vh;
   list-style: none;
   margin: 0;
   outline: none;
-  padding: 10px 16px;
+  padding: 1vh 0.833vw;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -144,7 +301,7 @@ button.cad_button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  box-shadow: 0 0 20px rgb(0, 0, 0, 0.15)
+  box-shadow: 0 0 1.042vw rgb(0, 0, 0, 0.15)
 }
 
 .cad_button:hover,
@@ -156,67 +313,67 @@ button.cad_button {
 /*CSS do cadastro_de_transacoes.html*/
 
 input.custom_input {
-    font-size: 14px;
-    padding: 3px;
+    font-size: 0.875rem;
+    padding: 0.156vw;
     width: 100%;
-    max-width: 200px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 10.417vw;
+    border: 0.150vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 #red_word {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
-    padding: 3px;
+    padding: 0.156vw;
     color: rgb(219, 11, 11);
     width: 100%;
-    max-width: 200px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 10.417vw;
+    border: 0.104vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 #green_word {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
-    padding: 3px;
+    padding: 0.156vw;
     color: rgb(10, 145, 10);
     width: 100%;
-    max-width: 200px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 10.417vw;
+    border: 0.104vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 #tipo {
-    font-size: 14px;
-    padding: 3px;
+    font-size: 0.875rem;
+    padding: 0.156vw;
     width: 100%;
-    max-width: 90px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 4.8vw;
+    border: 0.154vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 #tipo:focus {
     border-color: #0b1313; /* Altera a cor da borda quando o campo está em foco */
-    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
+    box-shadow: 0 0 0.26vw rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
 }
 
 #id_pessoa {
-    font-size: 14px;
-    padding: 3px;
+    font-size: 0.875rem;
+    padding: 0.156vw;
     width: 100%;
-    max-width: 250px;
-    border: 2px solid #cfc0c0;
-    border-radius: 6px;
+    max-width: 13.021vw;
+    border: 0.154vw solid #cfc0c0;
+    border-radius: 0.313vw;
     transition: border-color 0.3s ease;
 }
 
 #id_pessoa:focus {
     border-color: #0b1313; /* Altera a cor da borda quando o campo está em foco */
-    box-shadow: 0 0 5px rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
+    box-shadow: 0 0 0.26vw rgba(128, 231, 200, 0.5); /* Efeito de sombra no foco */
 }
 
 /* Para navegadores Webkit (Chrome, Safari, etc) */
@@ -233,12 +390,12 @@ input[type="number"]::-ms-clear {
 
 .error-modal {
     background-color: #f8d7da;
-    margin-top: 10px;
-    width: 400px;
+    margin-top: 0.521vw;
+    width: 20.833vw;
     color: #721c24;
-    padding: 10px;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
+    padding: 0.521vw;
+    border: 0.052vw solid #f5c6cb;
+    border-radius: 0.26vw;
 }
 
 .custom_input {
@@ -249,11 +406,11 @@ input[type="number"]::-ms-clear {
 
 .custom_table {
     border-collapse: collapse;
-    margin: 25px 0;
-    min-width: 400px;
-    border-radius: 5px 5px 0 0;
+    margin: 2.5vh 0;
+    min-width: 20.833vw;
+    border-radius: 0.5vh 0.26vw 0 0;
     overflow: hidden;
-    box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+    box-shadow: 0 0 2vh rgb(0, 0, 0, 0.15);
 }
 
 .custom_table thead tr {
@@ -265,11 +422,11 @@ input[type="number"]::-ms-clear {
 
 .custom_table th,
 .custom_table td {
-    padding: 12px 15px;
+    padding: 1.2vh 0.781vw;
 }
 
 .custom_table tbody tr {
-    border-bottom: 1px solid #dddddd; /* Retira as linhas verticais */
+    border-bottom: 0.052vw solid #dddddd; /* Retira as linhas verticais */
 }
 
 .custom_table tbody tr:nth-of-type(even) {
@@ -277,7 +434,7 @@ input[type="number"]::-ms-clear {
 }
 
 .custom_table tbody tr:last-of-type {
-    border-bottom: 3px solid #009879;
+    border-bottom: 0.156vw solid #009879;
 }
 
 .custom_table tbody tr.custom_tr {

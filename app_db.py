@@ -9,12 +9,20 @@ db = SQLAlchemy()
 # O banco de dados será composto de um número identificador aleatório gerado pelo computador
 # Será um único banco de dados composto de identificador 
 
+# Modelo login de usuário
+class User(db.Model):
+    __tablename__ = 'usuarios'
+    id_user = db.Column(db.Integer, primary_key=True)
+    nome_de_usuario = db.Column(db.String(100), unique=True, nullable=False)
+    senha = db.Column(db.String(100), nullable=False)
+    
 # Modelo Pessoa
 class Pessoa(db.Model):
     __tablename__ = 'pessoas'  # Nome da tabela no banco de dados
     id_pessoa = db.Column(db.Integer, primary_key=True, autoincrement=True)  # Id da pessoa (auto incremento)
     nome = db.Column(db.String(100), nullable=False)  # Nome da pessoa (não pode ser nulo)
     idade = db.Column(db.Integer, nullable=False)  # Idade da pessoa (não pode ser nulo)
+    id_user = db.Column(db.Integer, db.ForeignKey('usuarios.id_user'), nullable=False)
 
     # Relacionamento com a tabela Transacao
     transacoes = db.relationship('Transacao', backref='pessoa', lazy=True, cascade='all, delete-orphan')  # Define o relacionamento com a tabela Transacao
